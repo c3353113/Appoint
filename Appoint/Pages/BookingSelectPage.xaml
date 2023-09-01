@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Appoint.Pages.BookingSelectPage"
+             Title="Appointments">
+    <ScrollView>
+        <VerticalStackLayout
+            Margin="20"
+>
+            <ListView
+                x:Name="BookingSelectListView"
+                SelectionMode="None"
+                ItemTapped="BookingSelectListView_ItemTapped"
+                ItemsSource="{Binding Bookings}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout>
+                                <Line 
+                                    Stroke="black"
+                                    X2="600"/>
+                                <Label
+                                    Text="{Binding CusName}"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Text="{Binding BookingDate}"/>
+
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                x:Name="AddBookingButton"
+                Text="Add Appointment"
+                HorizontalOptions="Center"
+                Clicked="AddBookingButton_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

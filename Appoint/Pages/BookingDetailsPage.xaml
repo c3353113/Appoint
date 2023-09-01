@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Appoint.Pages.BookingDetailsPage"
+             xmlns:models="clr-namespace:Appoint.Models"
+             Title="BookingDetailsPage">
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter 
+                Property="Margin"
+                Value="5"/>
+            
+            </Style>
+        <Style TargetType="Label">
+            <Setter
+                Property="FontAttributes"
+                Value="Bold"/>
+            <Setter
+                Property="VerticalOptions"
+                Value="Center"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <ScrollView
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All">
+            <VerticalStackLayout
+                Padding="0, 0, 0, 40">
+                <Label
+                    TextColor="MediumPurple"
+                    FontFamily="Arial"
+                    Text="Appointment Details"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="30"/>
+
+                    <Grid
+                    BackgroundColor="MediumPurple"
+                    ColumnSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        VerticalOptions="Center"
+                        Text="Name:"
+                        FontAttributes="Bold"/>
+                        <Entry
+                        WidthRequest="325"
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Text="{Binding CusName}"
+                        BackgroundColor="White"
+                        Background="White"
+                        Placeholder="John Smith"/>
+                    </Grid>
+
+                <Grid
+                    BackgroundColor="MediumPurple" 
+                    ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        VerticalOptions="Center"
+                        Text="Booking Date:"
+                        FontAttributes="Bold"/>
+                    <Entry
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        Background="white"
+                        BackgroundColor="white"
+                        Placeholder="xx/xx/xxx"
+                        WidthRequest="100"
+                        Text="{Binding BookingDate}"/>
+                    <Label
+                        Grid.Column="4"
+                        Grid.Row="1"
+                        VerticalOptions="Center"
+                        Text="Booking Time:"
+                        FontAttributes="Bold"/>
+                    <Entry
+                        Grid.Column="4"
+                        Grid.Row="2"
+                        Background="white"
+                        HorizontalOptions="End"
+                        BackgroundColor="white"
+                        Placeholder="12:00AM"
+                        WidthRequest="75"
+                        Text="{Binding BookingTime}"/>
+
+
+                </Grid>
+                <Grid
+                    
+                    BackgroundColor="white">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/> 
+                        <RowDefinition Height="90"/> 
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/> 
+                        <ColumnDefinition Width="Auto"/> 
+                    </Grid.ColumnDefinitions>
+ 
+                    
+                    <Label
+                        HorizontalOptions="Center"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Contact Number: "
+                        FontAttributes="Bold"/>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Placeholder="02 .... ...."
+                        Background="white"
+                        Text="{Binding CusPhoneNo}"
+                        WidthRequest="130"
+                        HorizontalOptions="Start"
+                        />
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="Booking Location: "
+                        FontAttributes="Bold"/>
+                    <Editor
+                        HorizontalOptions="End"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Placeholder="99 Address Avenue, Newcastle"
+                        Background="white"
+                        Text="{Binding BookingLocation}"
+                        />
+
+                 </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <HorizontalStackLayout
+            AbsoluteLayout.LayoutBounds="1, 1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Margin="20"
+            Spacing="10">
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save"
+                Clicked="SaveButton_Clicked"/>
+
+            <Button
+                x:Name="DeleteButton"
+                Text="Delete"
+                Clicked="DeleteButton_Clicked"/>
+
+        </HorizontalStackLayout>
+
+
+    </AbsoluteLayout>
+</ContentPage>
