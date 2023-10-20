@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Appoint.Pages.BookingDetailsPage"
              xmlns:models="clr-namespace:Appoint.Models"
-             Title="BookingDetailsPage">
+             Title="Details">
     <ContentPage.Resources>
         <Style TargetType="Entry">
             <Setter 
@@ -22,6 +22,7 @@
 
     </ContentPage.Resources>
     <AbsoluteLayout>
+     
         <ScrollView
             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
             AbsoluteLayout.LayoutFlags="All">
@@ -116,7 +117,8 @@
                     BackgroundColor="white">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/> 
-                        <RowDefinition Height="90"/> 
+                        <RowDefinition Height="90"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/> 
@@ -139,37 +141,88 @@
                         WidthRequest="130"
                         HorizontalOptions="Start"
                         />
+                
                     <Label
                         Grid.Column="0"
                         Grid.Row="1"
                         Text="Booking Location: "
                         FontAttributes="Bold"/>
                     <Editor
-                        HorizontalOptions="End"
+                        HorizontalOptions="Fill"
+                        AutoSize="TextChanges"
                         Grid.Column="1"
                         Grid.Row="1"
-                        Placeholder="99 Address Avenue, Newcastle"
+                        Placeholder="99 Address Avenue, Newcastle, 2300"
                         Background="white"
                         Text="{Binding BookingLocation}"
+                        HeightRequest="75"
                         />
+                    
+                   
 
-                 </Grid>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Text="Price:"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        />
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        WidthRequest="90"
+                        Placeholder="$999"
+                        Text="{Binding BookingPrice}"
+                        Margin="20"/>
+                    <Label Text="Important?"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           Padding="30"/>
+                    <CheckBox
+                        x:Name="favoriteBox"
+                        IsChecked="{Binding isFavorite}"
+                        CheckedChanged="CheckBox_Toggled"
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        />
+                </Grid>
+                <Label Text="Notes "/>
+                <Editor
+                    AutoSize="TextChanges"/>
 
             </VerticalStackLayout>
         </ScrollView>
-
+        
         <HorizontalStackLayout
             AbsoluteLayout.LayoutBounds="1, 1"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Margin="20"
             Spacing="10">
+            <Button
+                BackgroundColor="MediumPurple"
+                WidthRequest="200"
+                Text="Contact Customer"
+                Clicked="MessageButton_Clicked"
+                />
 
             <Button
                 x:Name="SaveButton"
                 Text="Save"
-                Clicked="SaveButton_Clicked"/>
+                Clicked="SaveButton_Clicked"
+                BackgroundColor="#3f8fc0"/>
 
             <Button
+                
                 x:Name="DeleteButton"
                 Text="Delete"
                 Clicked="DeleteButton_Clicked"/>

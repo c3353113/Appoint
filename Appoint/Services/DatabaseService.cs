@@ -31,6 +31,8 @@ namespace Appoint.Services
                 {
                     _connection = new SQLiteConnection(DatabaseFile);
                     _connection.CreateTable<BookingModel>();
+                   
+                   
                 }
                 return _connection;
             }

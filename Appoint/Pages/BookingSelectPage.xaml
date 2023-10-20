@@ -5,36 +5,77 @@
              Title="Appointments">
     <ScrollView>
         <VerticalStackLayout
-            Margin="20"
+            
 >
             <ListView
                 x:Name="BookingSelectListView"
                 SelectionMode="None"
                 ItemTapped="BookingSelectListView_ItemTapped"
-                ItemsSource="{Binding Bookings}">
+                ItemsSource="{Binding SortedItems}">
+                
+                 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <VerticalStackLayout>
                                 <Line 
-                                    Stroke="black"
+                                    Stroke="{StaticResource Primary}"
+                                    StrokeThickness="5"
                                     X2="600"/>
+                                <Image Source="favorite_icon.png"
+                                       IsVisible="{Binding isFavorite}"
+                                       HorizontalOptions="Center"
+                                       WidthRequest="50"
+                                       HeightRequest="50"
+                                       Aspect="AspectFit"/>
                                 <Label
                                     Text="{Binding CusName}"
-                                    FontAttributes="Bold"/>
-                                <Label
-                                    Text="{Binding BookingDate}"/>
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"/>
+                                
+
+                                <Grid
+                                    HorizontalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                         Grid.Row="0"
+                                         Grid.Column="0"
+                                        Text="{Binding BookingDate}"/>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Text="{Binding BookingTime}"
+                                        HorizontalOptions="Center"/>
+                                    
+
+                                </Grid>
+                                
+                                
 
                             </VerticalStackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Line 
+                Stroke="{StaticResource Primary}"
+                StrokeThickness="5"
+                  X2="600"/>
             <Button
+                Margin="10"
                 x:Name="AddBookingButton"
                 Text="Add Appointment"
                 HorizontalOptions="Center"
-                Clicked="AddBookingButton_Clicked"/>
+                Clicked="AddBookingButton_Clicked"
+                VerticalOptions="End"/>
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>

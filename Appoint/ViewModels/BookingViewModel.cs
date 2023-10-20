@@ -4,9 +4,10 @@ using SQLite;
 
 namespace Appoint.ViewModels
 {
-    internal class BookingViewModel : ObservableObject
+    public class BookingViewModel : ObservableObject
     {
         public static BookingViewModel Current { get; set; }
+
 
         SQLiteConnection connection;
 
@@ -23,6 +24,16 @@ namespace Appoint.ViewModels
                 return connection.Table<BookingModel>().ToList();
             }
         }
+
+        public List<BookingModel> SortedItems
+        {
+            get
+            {
+                return Bookings.OrderBy(Bookings => Bookings.CusName).ToList();
+            }
+        }
+
+  
 
         public void SaveBooking(BookingModel model)
         {

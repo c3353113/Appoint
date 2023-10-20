@@ -5,8 +5,9 @@
             x:Class="Appoint.Pages.BookingTabPage"
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            Title="BookingTabPage">
+            Title="BookingTabPage"
+            >
 
-    <pages:BookingDetailsPage Title="Details"/>
+    <pages:BookingDetailsPage Title="Details" />
 
 </TabbedPage>

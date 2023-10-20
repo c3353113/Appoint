@@ -1,26 +1,25 @@
 using Appoint.Models;
 using Appoint.ViewModels;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Appoint.Pages;
 
 public partial class BookingSelectPage : ContentPage
 {
-	BookingViewModel viewModel;
-
+	BookingViewModel viewModel; 
 
 	public BookingSelectPage()
 	{
-		
-        BindingContext = viewModel = new BookingViewModel();
-		InitializeComponent();
 
+		BindingContext = viewModel = new BookingViewModel();
+		InitializeComponent();
 
 
 	}
     protected override void OnAppearing()
     {
-		viewModel.OnPropertyChanged("Bookings");
+		viewModel.OnPropertyChanged("SortedItems");
     }
 
 	private void BookingSelectListView_ItemTapped(object sender, ItemTappedEventArgs e)

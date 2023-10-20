@@ -1,4 +1,6 @@
 ﻿using Appoint.Pages;
+using Microsoft.Maui.ApplicationModel.Communication;
+
 namespace Appoint;
 
 public partial class MainPage : ContentPage
@@ -13,5 +15,8 @@ public partial class MainPage : ContentPage
 	{
 		Navigation.PushAsync(new BookingSelectPage());
 	}
+	
+
+
 }
 

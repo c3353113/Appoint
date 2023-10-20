@@ -21,6 +21,7 @@
                 Text="My Appointments"
                 Clicked="onAppointmentButtonClicked"/>
 
+
         </VerticalStackLayout>
     </ScrollView>
 

@@ -1,6 +1,7 @@
 using Appoint.Models;
 using Appoint.ViewModels;
 using System.Collections.ObjectModel;
+using System.Security.AccessControl;
 
 namespace Appoint.Pages;
 
@@ -16,6 +17,15 @@ public partial class BookingDetailsPage : ContentPage
 
 
 	}    
+
+    private void CheckBox_Toggled(object sender, CheckedChangedEventArgs e)
+    {
+        var model = (BookingModel)Parent.BindingContext;
+        model.isFavorite = e.Value;
+    }
+
+ 
+
     private async void SaveButton_Clicked(object sender, EventArgs e)
     {
         var model = (BookingModel)Parent.BindingContext;
@@ -23,7 +33,7 @@ public partial class BookingDetailsPage : ContentPage
             await DisplayAlert("Warning", "You must enter a customer name before saving!", "Okay");
             return;
         }
-        if (model.BookingDate == null || model.BookingDate.Length < 10)
+        if (model.BookingDate == null )
         {
             await DisplayAlert("Warning", "You must enter a valid date before saving!", "Okay");
             return;
@@ -48,5 +58,10 @@ public partial class BookingDetailsPage : ContentPage
         BookingViewModel.Current.DeleteBooking(model);
 
         await Navigation.PopAsync();
+    }
+
+    private async void MessageButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MessagePage());
     }
 }

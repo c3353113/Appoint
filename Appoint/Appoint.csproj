@@ -58,12 +58,18 @@
 	  <Compile Update="Pages\BookingDetailsPage.xaml.cs">
 	    <DependentUpon>BookingDetailsPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\BookingSelectPage - Copy.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\BookingTabPage.xaml.cs">
 	    <DependentUpon>BookingTabPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\BookingSelectPage - Copy.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\BookingSelectPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -71,6 +77,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\BookingTabPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MessagePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
